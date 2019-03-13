@@ -11,6 +11,5 @@ public class Mancala {
 
     public static void main(String[] args) {
         LOGGER.info("Starting Mancala game.");
-        new Mancala();
     }
 }
