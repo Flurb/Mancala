@@ -3,6 +3,7 @@
  */
 package nl.flurb;
 
+import nl.flurb.controllers.GameController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,5 +12,6 @@ public class Mancala {
 
     public static void main(String[] args) {
         LOGGER.info("Starting Mancala game.");
+        new GameController();
     }
 }
