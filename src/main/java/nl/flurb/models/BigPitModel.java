@@ -7,15 +7,15 @@ import nl.flurb.datatypes.PitType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class BigPit extends Pit {
-    private static final Logger LOGGER = LoggerFactory.getLogger(BigPit.class);
+public class BigPitModel extends AbstractPitModel {
+    private static final Logger LOGGER = LoggerFactory.getLogger(BigPitModel.class);
 
     /**
      * Constructor
      *
      * @param identifier The identifier of the pit. Used for getting opposite pit's stones.
      */
-    BigPit(int identifier) {
+    public BigPitModel(int identifier) {
         super(identifier, PitType.BIG);
     }
 }

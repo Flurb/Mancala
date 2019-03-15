@@ -9,18 +9,18 @@ import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Player {
-    private static final Logger LOGGER = LoggerFactory.getLogger(Player.class);
+public class PlayerModel {
+    private static final Logger LOGGER = LoggerFactory.getLogger(PlayerModel.class);
 
     /**
      * Identifier is generated now, range 1000 ... 9999.
      */
     private final int identifier;
 
-    Player(int numberOfPits) {
+    PlayerModel(int numberOfPits) {
         identifier = ThreadLocalRandom.current().nextInt(1000, 9999);
 
-        LOGGER.info("Player: creating player with identifier {}", identifier);
+        LOGGER.info("PlayerModel: creating player with identifier {}", identifier);
     }
 
     int getIdentifier() {

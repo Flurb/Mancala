@@ -10,10 +10,10 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Abstract representation of a pit.
- * This can either be a small pit or a BigPit.
+ * This can either be a small pit or a BigPitModel.
  */
-public abstract class Pit {
-    private static final Logger LOGGER = LoggerFactory.getLogger(Pit.class);
+public abstract class AbstractPitModel {
+    private static final Logger LOGGER = LoggerFactory.getLogger(AbstractPitModel.class);
 
     private final int identifier;
     private final PitType pitType;
@@ -29,17 +29,17 @@ public abstract class Pit {
      * @param identifier The identifier of the pit. Used for getting opposite pit's stones.
      * @param pitType The type of pit, either big or small.
      */
-    protected Pit(int identifier, PitType pitType) {
+    protected AbstractPitModel(int identifier, PitType pitType) {
         this.identifier = identifier;
         this.pitType = pitType;
     }
 
-    protected PitType getPitType() {
+    public PitType getPitType() {
         return pitType;
     }
 
-    protected boolean isEmpty() {
-        return rocks == 0;
+    public int getIdentifier() {
+        return identifier;
     }
 
     /**
@@ -47,16 +47,16 @@ public abstract class Pit {
      *
      * @param rocks Number of rocks to add.
      */
-    protected void addRocks(int rocks) {
+    public void addRocks(int rocks) {
         LOGGER.trace("addRocks: adding {} rocks", rocks);
         this.rocks += rocks;
     }
 
-    protected void clearRocks() {
+    void clearRocks() {
         rocks = 0;
     }
 
-    protected int getNumberOfRocks() {
+    public int getNumberOfRocks() {
         return rocks;
     }
 
