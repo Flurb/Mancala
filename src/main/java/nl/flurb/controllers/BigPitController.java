@@ -19,13 +19,21 @@ public class BigPitController implements PitController {
 
     BigPitController(int identifier) {
         model = new BigPitModel(identifier);
+
         view = new BigPitView();
+        updateView();
     }
 
     public void addRocks(int rocks) {
         model.addRocks(rocks);
+        updateView();
+    }
 
-        int totalNumberOfRocks = model.getNumberOfRocks();
-        view.updateState(totalNumberOfRocks);
+    public BigPitView getView() {
+        return view;
+    }
+
+    private void updateView() {
+        view.updateState(String.valueOf(model.getNumberOfRocks()));
     }
 }

@@ -10,5 +10,11 @@ public class BoardModel {
     private static final Logger LOGGER = LoggerFactory.getLogger(BoardModel.class);
 
     public BoardModel() {
+        LOGGER.trace("created");
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

@@ -16,6 +16,13 @@ public class BigPitModel extends AbstractPitModel {
      * @param identifier The identifier of the pit. Used for getting opposite pit's stones.
      */
     public BigPitModel(int identifier) {
-        super(identifier, PitType.BIG);
+        super(identifier, PitType.BIG, 0);
+
+        LOGGER.trace("created with identifier {}", identifier);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

@@ -19,6 +19,8 @@ public class PitRowModel {
     PitRowModel(int numberOfSmallPits) {
         pitRow = new LinkedList<>();
         createPitRow(numberOfSmallPits);
+
+        LOGGER.trace("created");
     }
 
     private void createPitRow(int numberOfSmallPits) {

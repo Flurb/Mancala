@@ -4,5 +4,5 @@
 package nl.flurb.views;
 
 public interface PitView {
-    public void updateState(int state);
+    void updateState(String state);
 }

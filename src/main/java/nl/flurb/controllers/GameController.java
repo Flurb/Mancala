@@ -4,6 +4,7 @@
 package nl.flurb.controllers;
 
 import nl.flurb.GamePropertyLoader;
+import nl.flurb.views.GameFrame;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,10 +18,12 @@ import java.util.stream.IntStream;
 public class GameController {
     private static final Logger LOGGER = LoggerFactory.getLogger(GameController.class);
 
-    private final List<BoardRowController> boardRowControllers;
+    private final GameFrame gameFrame;
+    private final List<PlayerRowController> playerRowControllers;
 
     public GameController() {
-        boardRowControllers = new LinkedList<>();
+        gameFrame = new GameFrame();
+        playerRowControllers = new LinkedList<>();
 
         int nrOfPlayers = GamePropertyLoader.getNumberOfPlayers();
         LOGGER.info("Created GameController: {} players", nrOfPlayers);
@@ -29,6 +32,7 @@ public class GameController {
     }
 
     private void initializeBoardRowControllers(int nrOfPlayers) {
-        IntStream.range(0, nrOfPlayers).forEach(player -> boardRowControllers.add(new BoardRowController()));
+        IntStream.range(0, nrOfPlayers).forEach(player
+                -> playerRowControllers.add(new PlayerRowController(gameFrame, player)));
     }
 }

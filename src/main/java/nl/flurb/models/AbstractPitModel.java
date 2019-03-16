@@ -28,10 +28,12 @@ public abstract class AbstractPitModel {
      *
      * @param identifier The identifier of the pit. Used for getting opposite pit's stones.
      * @param pitType The type of pit, either big or small.
+     * @param defaultNumberOfRocks the default number of rocks in this pit.
      */
-    protected AbstractPitModel(int identifier, PitType pitType) {
+    AbstractPitModel(int identifier, PitType pitType, int defaultNumberOfRocks) {
         this.identifier = identifier;
         this.pitType = pitType;
+        rocks = defaultNumberOfRocks;
     }
 
     public PitType getPitType() {

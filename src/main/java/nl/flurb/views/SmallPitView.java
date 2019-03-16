@@ -3,18 +3,23 @@
  */
 package nl.flurb.views;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.swing.JButton;
+import javax.swing.SwingUtilities;
 import java.awt.event.ActionListener;
 
 public class SmallPitView extends JButton implements PitView {
+    private static final Logger LOGGER = LoggerFactory.getLogger(SmallPitView.class);
 
     public SmallPitView(ActionListener commandListener) {
         addActionListener(commandListener);
     }
 
     @Override
-    public void updateState(int state) {
-        String buttonText = Integer.toString(state);
-        setText(buttonText);
+    public void updateState(String state) {
+        LOGGER.debug("updateState: {}", state);
+        SwingUtilities.invokeLater(() -> setText(state));
     }
 }

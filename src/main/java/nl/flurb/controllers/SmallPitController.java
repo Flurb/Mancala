@@ -17,8 +17,18 @@ public class SmallPitController implements PitController {
     private final SmallPitModel model;
     private final SmallPitView view;
 
-    SmallPitController(int identifier) {
+    public SmallPitController(int identifier) {
         model = new SmallPitModel(identifier);
+
         view = new SmallPitView(listener -> LOGGER.info("Trying to get rocks from pit {}", model.getIdentifier()));
+        updateView();
+    }
+
+    public SmallPitView getView() {
+        return view;
+    }
+
+    private void updateView() {
+        view.updateState(String.valueOf(model.getNumberOfRocks()));
     }
 }

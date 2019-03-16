@@ -3,6 +3,7 @@
  */
 package nl.flurb.models;
 
+import nl.flurb.GamePropertyLoader;
 import nl.flurb.datatypes.PitType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +17,9 @@ public class SmallPitModel extends AbstractPitModel {
      * @param identifier The identifier of the pit. Used for getting opposite pit's stones.
      */
     public SmallPitModel(int identifier) {
-        super(identifier, PitType.SMALL);
+        super(identifier, PitType.SMALL, GamePropertyLoader.getDefaultNumberOfRocksInPit());
+
+        LOGGER.trace("created with identifier {}", identifier);
     }
 
     /**
@@ -30,5 +33,10 @@ public class SmallPitModel extends AbstractPitModel {
 
         clearRocks();
         return oldNumberOfRocks;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }
