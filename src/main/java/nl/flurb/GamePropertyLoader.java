@@ -39,4 +39,9 @@ public class GamePropertyLoader {
         return Integer.valueOf(defaultRocksInPit);
     }
 
+    public static int getDefaultNumberOfPits() {
+        String defaultNrOfPits = gameProperties.getProperty("defaultNrOfPits");
+        return Integer.valueOf(defaultNrOfPits);
+    }
+
 }

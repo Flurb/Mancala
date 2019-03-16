@@ -3,6 +3,8 @@
  */
 package nl.flurb.controllers;
 
+import nl.flurb.GamePropertyLoader;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -18,9 +20,11 @@ public class BoardRowController {
      *
      * @param nrOfPits Number of pits inclusive the big pit.
      */
-    BoardRowController(int nrOfPits) {
+    BoardRowController() {
         pitRow = new LinkedList<>();
-        initializePitRow(nrOfPits);
+
+        int defaultNrOfPits = GamePropertyLoader.getDefaultNumberOfPits();
+        initializePitRow(defaultNrOfPits);
     }
 
     private void initializePitRow(int nrOfPits) {

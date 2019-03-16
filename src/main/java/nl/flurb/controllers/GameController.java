@@ -23,13 +23,12 @@ public class GameController {
         boardRowControllers = new LinkedList<>();
 
         int nrOfPlayers = GamePropertyLoader.getNumberOfPlayers();
-        int defaultNrOfRocksInPit = GamePropertyLoader.getDefaultRocksInPit();
-        LOGGER.info("Created GameController: {} players, {} rocks in each pit", nrOfPlayers, defaultNrOfRocksInPit);
+        LOGGER.info("Created GameController: {} players", nrOfPlayers);
 
-        initializeBoardRowControllers(nrOfPlayers, defaultNrOfRocksInPit);
+        initializeBoardRowControllers(nrOfPlayers);
     }
 
-    private void initializeBoardRowControllers(int nrOfPlayers, int defaultNrOfRocksInPit) {
-        IntStream.range(0, nrOfPlayers).forEach(player -> boardRowControllers.add(new BoardRowController(defaultNrOfRocksInPit)));
+    private void initializeBoardRowControllers(int nrOfPlayers) {
+        IntStream.range(0, nrOfPlayers).forEach(player -> boardRowControllers.add(new BoardRowController()));
     }
 }
