@@ -12,6 +12,13 @@ import javax.swing.SwingUtilities;
 public class BigPitView extends JLabel implements PitView {
     private static final Logger LOGGER = LoggerFactory.getLogger(BigPitView.class);
 
+    public BigPitView() {
+    }
+
+    public BigPitView(String name) {
+        SwingUtilities.invokeLater(() -> setName(name));
+    }
+
     @Override
     public void updateState(String state) {
         LOGGER.debug("updateState: {}", state);

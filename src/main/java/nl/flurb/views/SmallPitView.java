@@ -17,6 +17,11 @@ public class SmallPitView extends JButton implements PitView {
         addActionListener(commandListener);
     }
 
+    public SmallPitView(String name, ActionListener commandListener) {
+        SwingUtilities.invokeLater(() -> setName(name));
+        addActionListener(commandListener);
+    }
+
     @Override
     public void updateState(String state) {
         LOGGER.debug("updateState: {}", state);
