@@ -4,6 +4,7 @@
 plugins {
     id 'java'
     id 'application'
+    id 'org.sonarqube' version '3.0'
 }
 
 mainClassName = 'nl.flurb.Mancala'
